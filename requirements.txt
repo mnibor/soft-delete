@@ -1,0 +1,5 @@
+asgiref==3.7.2
+Django==4.2.6
+python-slugify==8.0.1
+sqlparse==0.4.4
+text-unidecode==1.3
