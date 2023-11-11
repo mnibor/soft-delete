@@ -1,0 +1,29 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    <section class="section">
+        <div class="container">
+            <h1 class="title has-text-grey-dark mt-6">Últimas Publicaciones</h1>
+            <div class="columns is-multiline">
+                {% for post in posts %}
+                    <div class="column is-one-third">
+                        <div class="box mt-4 is-rounded is-bordered has-border-color-primary">
+                            <h2 class="title is-4">{{ post.title }}</h2>
+                            <div class="content">
+                                <div class="tags">
+                                    <span class="tag is-link is-light">{{ post.category.name }}</span>
+                                </div>
+                                <p>Por: {{ post.author.first_name }} {{ post.author.last_name }}</p>
+                                <hr>
+                                <p>{{ post.body|slice:":120" }}{% if post.body|length > 120 %}...{% endif %}</p>
+                                {% if post.body|length > 120 %}
+                                    <a href="{% url 'post_detail' post.slug %}" class="button is-link">Leer más</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

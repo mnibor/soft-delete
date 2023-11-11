@@ -1,0 +1,21 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    <section class="section">
+        <div class="container">
+            <div class="box mt-4 is-rounded">
+                <h2 class="title is-4">{{ post.title }}</h2>
+                <div class="content">
+                    <div class="tags">
+                        <span class="tag is-link is-light">{{ post.category.name }}</span>
+                    </div>
+                    <p><strong>Por:</strong> {{ post.author.first_name }} {{ post.author.last_name }} - ({{ post.author.email }})</p>
+                    <hr>
+                    <p>{{ post.body }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="has-text-centered"> <!-- Contenedor para centrar el botón -->
+            <a class="button is-medium mt-4" href="{% url 'home' %}">Inicio</a>
+        </div>    </section>
+{% endblock %}
